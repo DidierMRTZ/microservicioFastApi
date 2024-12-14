@@ -19,6 +19,7 @@ def get_users():
     users = session.query(User).all()
     return users
 
+
 @user.get('/users/{id}',status_code=HTTP_200_OK)
 def get_users_id(id: str):
     # Crear sesión
