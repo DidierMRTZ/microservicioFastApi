@@ -1,8 +1,21 @@
 from pydantic import BaseModel
 from typing import Optional
 
-# Esquema de datos para el POST
+
+
+
 class UserCreate(BaseModel):
-    id: Optional[str]
     name: str
     email: str
+
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+
+    class Config:
+        orm_mode = True
+
+class UserUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
